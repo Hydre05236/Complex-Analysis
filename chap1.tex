@@ -132,3 +132,151 @@ $$
 $$
 a contradiction.
 \end{proof}
+Just as functions of real variables, we may define the derivative of functions of a complex variable. Let $D$ be a domain. Suppose $z\in D$, define $U_\rho=\{\zeta:|z-\zeta|<\rho\}$, then $U_\rho$ is said to be an open ball centered at $z$ with radius $\rho$. We mainly consider the circumstances that $U_\rho\subset D$. Under certain conditions we may consider $U_\rho\cap D$.
+\begin{figure}[htbp]
+    \label{1.1.1}
+    \center
+    \includegraphics[scale=0.39]{Images/neighborhood.png}
+    \caption{The set $U_\rho$}
+\end{figure}
+Let $f$ be a complex function and $c\in D$. If the limits 
+$$
+f^\prime(z) =\lim_{h\rightarrow 0} \frac{f\left( z+h \right) -f\left( z \right)}{h}
+$$
+exists, then $f$ is said to be \textbf{differentiable} at $z$. If $f$ is said to be differentiable if for all $z\in D$ we have $f^\prime(z)$ exists.\par
+We now turn to a discussion of the so-called \textbf{Cauchy-Riemann equations}. First note that if $f$ is differentiable, then we may rewrite the definition of differentiable into the following: 
+$$
+f\left( z+h \right) -f\left( z \right) =f^{\prime}\left( z \right) h+O\left( h \right) ,
+$$
+where $O(h)$ is a infinitesimal. Now suppose
+$$
+f\left( z \right) =f\left( x+\mathrm{i}y \right) =f\left( x,y \right) =u\left( x,y \right) +\mathrm{i}v\left( x,y \right) ,
+$$
+and 
+$h=\Delta x+\mathrm{i}\Delta y$, $f^\prime(z)=p+\mathrm{i}q$, $\Delta w=f(z+h)-f(z)=\Delta u+\mathrm{i}\Delta v$, then 
+$$
+\Delta u+\mathrm{i}\Delta v=\left( p+\mathrm{i}q \right) \left( \Delta x+\mathrm{i}\Delta y \right) +O\left( \sqrt{\Delta ^2x+\Delta ^2y} \right) .
+$$
+Taking real and imaginary part we obtain 
+$$
+\Delta u=p\Delta x-q\Delta y+O\left( \sqrt{\Delta ^2x+\Delta ^2y} \right) ,\hspace{0.5cm}\Delta v=p\Delta y+q\Delta x+O\left( \sqrt{\Delta ^2x+\Delta ^2y} \right) .
+$$
+From this we conclude 
+$$
+u_x\left( x,y \right) =v_y\left( x,y \right) =p,\hspace{0.5cm}u_y\left( x,y \right) =-v_x\left( x,y \right) =-q.
+$$
+Therefore if $f$ is differentiable, we have $u$ and $v$ satisfy the following equations: 
+\begin{equation}\label{1.2}
+\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y},\hspace{0.5cm}\frac{\partial v}{\partial x}=-\frac{\partial u}{\partial y}.
+\end{equation}
+We call \eqref{1.2} \textbf{Cauchy-Riemann equation}. A trivial observation is if $f$ is differentiable, then 
+$$
+f^{\prime}\left( z \right) =p+\mathrm{i}q=u_x\left( x,y \right) +\mathrm{i}v_x\left( x,y \right) =v_y\left( x,y \right) -\mathrm{i}u_y\left( x,y \right) .
+$$
+Conversely, suppose $f(z)=u(x,y)+\mathrm{i}v(x,y)$ with $u$ and $v$ satisfy the Cauchy-Riemann equation, then take 
+$$
+p=\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y},\hspace{0.5cm}q=-\frac{\partial u}{\partial y}=\frac{\partial v}{\partial x},
+$$
+we have 
+$$
+\Delta u=p\Delta x-q\Delta y+O\left( \sqrt{\Delta ^2x+\Delta ^2y} \right) ;\hspace{0.5cm}\Delta v=p\Delta x+q\Delta y+O\left( \sqrt{\Delta ^2x+\Delta ^2y} \right) ,
+$$
+hence 
+$$
+f\left( z+h \right) -f\left( z \right) =\Delta u+\mathrm{i}\Delta v=\left( p+\mathrm{i}q \right) \left( \Delta x+\mathrm{i}\Delta y \right) +O\left( \left| h \right| \right) .
+$$
+Therefore 
+$$
+\lim_{h\rightarrow 0} \frac{f\left( z+h \right) -f\left( z \right)}{h}=\lim_{h\rightarrow 0} \frac{\left( p+\mathrm{i}q \right) \left( \Delta x+\mathrm{i}\Delta y \right) +O\left( \left| h \right| \right)}{h}=p+\mathrm{i}q,
+$$
+which implies that $f^\prime(z)$ exists. Therefore we have $f$ is differentiable if and only if $u$ and $v$ satisfy the Cauchy-Riemann equations.\par
+We mention that, just as functions of real variables, if $f^\prime(z)=0$ for all $z\in D$, then $f$ is a constant. The proof is easy: consider the Cauchy-Riemann functions, since $f^\prime(z)=0$, then we have $u_x=u_y=0$. Therefore $u$ is a constant of $x$ and $y$. Similarly we have analogous results for $v$ and the proof is finished.\par
+We introduce the following definition.
+\begin{definition}
+Let $D$ be a domain, $f$ a complex function defined on $D$ that is differentiable. If $f^\prime(z)$ is continuous over $D$, then $f$ is said to be \textbf{holomorphic} over $D$, denoted $f\in H(D)$.
+\end{definition}
+The conventional definition of a holomorphic function does not grant the continuity of $f^\prime(z)$. However, in our text we assume $f^\prime(z)$ to be continuous. Indeed, in modern theories, for instance, manifolds, continuous differentiable functions plays a more greater role than functions that are simply differentiable. Therefore our definition here seems more natural. We shall prove later that our definition here is equivalent to the conventional one, i.e. a complex function that is differentiable always have continuous derivation.\par
+The following theorem follows immediately from the preceding discussion.
+\begin{theorem}
+A complex function $f(z)=f(x+\mathrm{i}y)=u(x,y)+\mathrm{i}v(x,y)$ defined on a domain $D$ is holomorphic if and only if its real part $u(x,y)$ and imaginary part $v(x,y)$ are continuously differentiable and satisfy the Cauchy-Riemann equations.
+\end{theorem}
+\begin{proof}
+Suppose $f\in H(D)$. Then trivially $u$ and $v$ satisfy the Cauchy-Riemann equation. Note further $f^{\prime}\left( z \right) =u_x\left( x,y \right) -\mathrm{i}u_y\left( x,y \right) $ is continuous, we therefore have $u_x$ and $u_y$ are both continuous, hence $u$ is continuously differentiable. Similarly $v$ has analogous results.\par
+Conversely, suppose $u$ and $v$ satisfy the Cauchy-Riemann equations. Then $f$ is differentiable. Note further $u$ and $v$ are continuously differentiable, therefore $f^{\prime}\left( z \right) =u_x\left( x,y \right) -\mathrm{i}u_y\left( x,y \right) $ is continuous, which finished the proof.
+\end{proof}
+Just as functions of a real variable, differentiation has the following properties:
+\begin{proposition}
+Let $f(z)$ and $g(z)$ be two functions that are differentiable over $D$. Then: 
+\begin{enumerate}
+    \item Suppose $a_1$ and $a_2$ are constant, then 
+    $$
+    \frac{\mathrm{d}}{\mathrm{d}z}\left( a_1f\left( z \right) +a_2g\left( z \right) \right) =a_1\frac{\mathrm{d}f\left( z \right)}{\mathrm{d}z}+a_2\frac{\mathrm{d}g\left( z \right)}{\mathrm{d}z};
+    $$
+    \item 
+    $$
+    \frac{\mathrm{d}}{\mathrm{d}z}f\left( z \right) g\left( z \right) =\frac{\mathrm{d}f\left( z \right)}{\mathrm{d}z}g\left( z \right) +f\left( z \right) \frac{\mathrm{d}g\left( z \right)}{\mathrm{d}z};
+    $$
+    \item If $g(z)\ne 0$ over $D$, then 
+    $$
+    \frac{\mathrm{d}}{\mathrm{d}z}\left( \frac{f\left( z \right)}{g\left( z \right)} \right) =\frac{f^{\prime}\left( z \right) g\left( z \right) -f\left( z \right) g^{\prime}\left( z \right)}{g^2\left( z \right)}.
+    $$
+\end{enumerate}
+\end{proposition}
+The proof of the proposition is similar to that of real variables and we omit the details. From this we immediately obtain that the linear combination, product and quotient (provided the denominator is nonzero) of two homomorphic function is also holomorphic. Furthermore, we have the following theorem for the derivative of composite functions.
+\begin{theorem}
+Let $f$ be a holomorphic function defined on $D$ and $g$ a holomorphic function defined on $E$ such that $f(D)\subset E$. Then $g\circ f$ is also homomorphic and 
+$$
+\frac{\mathrm{d}}{\mathrm{d}z}f\left( g\left( z \right) \right) =g^{\prime}\left( f\left( z \right) \right) f^{\prime}\left( z \right) .
+$$
+\end{theorem}
+\begin{proof}
+Since $f$ and $g$ are both holomorphic, we have 
+$$
+f\left( z+h \right) -f\left( z \right) =f^{\prime}\left( z \right) h+O\left( h \right) ;\hspace{0.5cm}g\left( w+k \right) -g\left( k \right) =g^{\prime}\left( w \right) k+O\left( k \right) .
+$$
+Set $w=f\left( z \right) ,k=f\left( z+h \right) -f\left( z \right) $, we have 
+$$
+\begin{aligned}
+g\left( f\left( z+h \right) \right) -g\left( f\left( z \right) \right) &=g^{\prime}\left( f\left( z \right) \right) \left( f\left( z+h \right) -f\left( z \right) \right) +O\left( f\left( z+h \right) -f\left( z \right) \right) 
+\\
+&=g^{\prime}\left( f\left( z \right) \right) \left( f^{\prime}\left( z \right) h+O\left( h \right) \right) +O\left( f^{\prime}\left( z \right) h+O\left( h \right) \right) 
+\\
+&=g^{\prime}\left( f\left( z \right) \right) f^{\prime}\left( z \right) h+g^{\prime}\left( f\left( z \right) \right) O\left( h \right) +O\left( f^{\prime}\left( z \right) h+O\left( h \right) \right) 
+\\
+&=g^{\prime}\left( f\left( z \right) \right) f^{\prime}\left( z \right) h+O\left( h \right) ,
+\end{aligned}
+$$
+therefore 
+$$
+\frac{\mathrm{d}}{\mathrm{d}z}f\left( g\left( z \right) \right) =\lim_{h\rightarrow 0} \frac{g\left( f\left( z+h \right) \right) -g\left( f\left( z \right) \right)}{h}=g^{\prime}\left( f\left( z \right) \right) f^{\prime}\left( z \right) ,
+$$
+which finished the proof.
+\end{proof}
+We use some examples to conclude this section.
+\begin{example}\em
+We give some examples of holomorphic functions.
+\begin{enumerate}
+    \item The function $z$ is holomorphic. This is trivial since 
+    $$
+    \lim_{h\rightarrow 0} \frac{z+h-z}{h}=\lim_{h\rightarrow 0} \frac{h}{h}=1.
+    $$
+    However, $\bar{z}$ is not holomorphic. Consider 
+    \begin{equation}\label{1.3}
+    \frac{\overline{z+h}-\overline{z}}{h}=\frac{\bar{z}+\bar{h}-\bar{z}}{h}=\frac{\bar{h}}{h}=\frac{\Delta x-\mathrm{i}\Delta y}{\Delta x+\mathrm{i}\Delta y},
+    \end{equation}
+    if $\Delta x=0$, then \eqref{1.3} approaches $-1$. However if $\Delta y=0$, then $\eqref{1.3}$ approaches $1$, hence the $\bar{z}$ is not differentiable.
+    \item The polynomial 
+    \begin{equation}\label{1.4}
+    p\left( z \right) =a_0+a_1z+a_2z^2+\cdots +a_nz^n\hspace{0.5cm}\left( a_0,a_1,\cdots ,a_n\in \mathbb{C} \right) 
+    \end{equation}
+    is holomorphic by the preceding discussion. Note also if $p(z)$ and $q(z)$ are both polynomials, then $p(z)/q(z)$ is also homomorphic excluding the zeros of $q(z)$. It is easy via induction to show that 
+    $$
+    \frac{\mathrm{d}}{\mathrm{d}z}z^n=nz^{n-1}.\hspace{0.5cm}\left( n\ge 1 \right) 
+    $$
+    Therefore the derivative of \eqref{1.4} is 
+    $$
+    \frac{\mathrm{d}p\left( z \right)}{\mathrm{d}z}=a_1+2a_2z+\cdots +na_nz^{n-1}.
+    $$
+\end{enumerate}
+\end{example}
+\subsection{Power Series}
